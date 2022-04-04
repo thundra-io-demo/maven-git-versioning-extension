@@ -4,11 +4,14 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import me.qoomon.gitversioning.commons.GitRefType;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,6 +20,7 @@ import java.util.regex.Pattern;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_EMPTY;
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
+import static com.fasterxml.jackson.databind.MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS;
 import static me.qoomon.gitversioning.commons.GitRefType.COMMIT;
 
 @JsonInclude(NON_NULL)
@@ -51,6 +55,10 @@ public class Configuration {
         @JsonInclude(NON_EMPTY)
         @JacksonXmlElementWrapper(useWrapping = false)
         public Map<String, String> properties = new HashMap<>();
+
+        @JsonInclude(NON_EMPTY)
+        @JacksonXmlElementWrapper(useWrapping = false)
+        public Map<String, Boolean> profiles = new HashMap<>();
 
         public Boolean updatePom;
     }

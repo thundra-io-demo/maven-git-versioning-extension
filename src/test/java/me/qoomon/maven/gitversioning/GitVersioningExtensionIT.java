@@ -11,6 +11,7 @@ import org.apache.maven.model.Dependency;
 import org.apache.maven.model.DependencyManagement;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.Parent;
+import org.assertj.core.api.Assertions;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.revwalk.RevCommit;
@@ -24,9 +25,10 @@ import java.nio.file.Path;
 import java.util.regex.Pattern;
 
 import static me.qoomon.gitversioning.commons.GitRefType.*;
-import static me.qoomon.maven.gitversioning.GitVersioningModelProcessor.GIT_VERSIONING_POM_NAME;
+import static me.qoomon.maven.gitversioning.ContextProvider.GIT_VERSIONING_POM_NAME;
 import static me.qoomon.maven.gitversioning.MavenUtil.readModel;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.catchThrowable;
 import static org.assertj.core.api.SoftAssertions.assertSoftly;
 
 class GitVersioningExtensionIT {
@@ -52,13 +54,12 @@ class GitVersioningExtensionIT {
         // When
         Verifier verifier = getVerifier(projectDir);
         verifier.displayStreamBuffers();
-        verifier.executeGoal("verify");
+
+        //noinspection ThrowableNotThrown,ResultOfMethodCallIgnored
+        catchThrowable(() -> verifier.executeGoal("verify"));
 
         // Then
-        verifier.verifyErrorFreeLog();
-        String expectedVersion = "0.0.0";
-        verifier.verifyTextInLog("Building " + pomModel.getArtifactId() + " " + expectedVersion);
-        verifier.verifyTextInLog("[WARNING] skip - project is not part of a git repository");
+        verifier.verifyTextInLog("[ERROR] Internal error: java.lang.RuntimeException: maven execution root directory is not a git repository");
         verifier.assertFileNotPresent(GIT_VERSIONING_POM_NAME);
     }
 

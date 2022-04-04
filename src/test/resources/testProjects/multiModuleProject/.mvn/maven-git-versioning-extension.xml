@@ -18,6 +18,9 @@
             <properties>
                 <foo>new_new_new</foo>
             </properties>
+            <profiles>
+                <profile-dummy1>true</profile-dummy1>
+            </profiles>
         </ref>
 
         <ref type="branch">
