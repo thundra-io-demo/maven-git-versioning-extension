@@ -35,6 +35,9 @@ jobs:
 
           git checkout ${{ env.BRANCH_NAME }}
 
+          git rm -f .github/workflows/*
+          git rm -f README.md
+          
           git remote set-url origin "https://x-access-token:${{ env.GITHUB_TOKEN }}@github.com/${{ env.ORIGIN_PATH }}"
           git commit -am "Merge upstream" || true
           git push -f -u origin ${{ env.BRANCH_NAME }}
