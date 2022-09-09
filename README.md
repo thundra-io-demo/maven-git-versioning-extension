@@ -6,9 +6,9 @@
 </a>
 
 ---
-![Success Details](https://api-public.service.runforesight.us/api/v1/badge/success?repoId=f29e33fe-1c25-4f83-b335-1d62a1fa5f30)
-![Test Result](https://api-public.service.runforesight.us/api/v1/badge/test?repoId=f29e33fe-1c25-4f83-b335-1d62a1fa5f30)
-![Utilization](https://api-public.service.runforesight.us/api/v1/badge/utilization?repoId=f29e33fe-1c25-4f83-b335-1d62a1fa5f30)
+![Success Details](https://api-public.service.runforesight.us/api/v1/badge/success?repoId=2548ba69-ae91-48bd-9676-bc23b664cf2c)
+![Test Result](https://api-public.service.runforesight.us/api/v1/badge/test?repoId=2548ba69-ae91-48bd-9676-bc23b664cf2c)
+![Utilization](https://api-public.service.runforesight.us/api/v1/badge/utilization?repoId=2548ba69-ae91-48bd-9676-bc23b664cf2c)
 
 
 | Report Attribute  | Value   | 
