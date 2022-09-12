@@ -1,7 +1,7 @@
 
 ## runforesight.com Demo Projects - Maven Git Versioning Extension
 
-<a href="https://foresight.thundra.live/repositories/github/runforesight-demo/maven-git-versioning-extension/workflow-runs">
+<a href="https://app.runforesight.live/repositories/github/runforesight-demo/maven-git-versioning-extension/workflow-runs">
   <img src="https://4750167.fs1.hubspotusercontent-na1.net/hubfs/4750167/foresight-live-badge-72.png" height="36" alt="see it on foresight" />
 </a>
 
